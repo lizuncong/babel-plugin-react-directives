@@ -83,6 +83,7 @@ function compile(code) {
 const code = fs.readFileSync(p.join(__dirname, './source.jsx'), 'utf-8')
 
 const resultObj = compile(code)
-console.log(resultObj)
 
-fs.writeFileSync(p.join(__dirname, './result.jsx'), 'import React from "react"\n' + resultObj.code)
+const output = 'import React from "react"\n\n' + '//转换前：\n' + code + '\n\n\n' + '//转换后：\n' + resultObj.code
+
+fs.writeFileSync(p.join(__dirname, './result.jsx'), output)
