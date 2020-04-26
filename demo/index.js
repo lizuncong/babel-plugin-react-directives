@@ -7,7 +7,7 @@ const p = require('path')
 
 
 function compile(code) {
-  // 1.parse
+  // 1.读取源代码并转换为抽象语法树
   const ast = parser.parse(code, {
     plugins: [
       'jsx'
@@ -21,6 +21,7 @@ function compile(code) {
     JSXElement(path, state){
       const { node: jsxNode } = path
       const jsxAttributes = jsxNode.openingElement.attributes
+      console.log('标签名称。。。。', jsxNode.openingElement.name.name, path.container)
       // 如果没有attributes属性或者attributes长度为0，则不进行转换
       if(!jsxAttributes || !jsxAttributes.length) return
       const index = jsxAttributes.findIndex(item => ['r-if', 'r-show'].indexOf(item.name.name) > -1 )
@@ -54,15 +55,12 @@ function compile(code) {
 
         const propertys = styleAttr.value.expression.properties
         const displayProperty = propertys.find(item => item.key.name === 'display')
-        let alterValue = types.stringLiteral('')
+        let alterValue = displayProperty ? displayProperty.value : types.stringLiteral('')
+        const conditionalExpression = types.conditionalExpression(rTest, alterValue, types.stringLiteral('none'))
         if(displayProperty){
-          alterValue = displayProperty.value
-          const conditionalExpression = types.conditionalExpression(rTest, types.stringLiteral('none'), alterValue)
           displayProperty.value = conditionalExpression
         } else {
-          const conditionalExpression = types.conditionalExpression(rTest, types.stringLiteral('none'), alterValue)
           const objectProperty = types.objectProperty(types.identifier('display'), conditionalExpression)
-
           propertys.push(objectProperty)
         }
       }

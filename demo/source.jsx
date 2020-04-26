@@ -1,12 +1,20 @@
 
 const b = 'c'
-const a = () => {
+
+const B = () => {
   return (
-      <div r-show={b} style={{ display: 'flex' }}>
-        this is div
-        <span r-if={b}>
-          this is span
-        </span>
+    <span>
+      I am Big B
+    </span>
+  )
+}
+
+const A = () => {
+  return (
+      <div r-show={b}>
+        <B r-show={b} />
       </div>
   )
 }
+
+

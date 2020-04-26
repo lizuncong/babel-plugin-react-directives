@@ -10,6 +10,6 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "./my-plugin.js"
+    "./react-directives-plugin.js"
   ]
 }

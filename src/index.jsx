@@ -1,12 +1,16 @@
-
+import React from 'react'
 const b = 'c'
-const a = () => {
+const B = () => {
   return (
-      <div r-show={b} style={{ display: 'flex' }}>
-        this is div
-        <span r-if={b}>
-          this is span
-        </span>
-      </div>
+    <div>
+      I am Big B
+    </div>
+  )
+}
+const A = () => {
+  return (
+    <div r-show={b}>
+      <B r-show={b} />
+    </div>
   )
 }
