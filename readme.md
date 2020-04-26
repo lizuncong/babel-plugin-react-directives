@@ -5,6 +5,7 @@ r-if，r-show做条件渲染。
 目前r-if支持html标签及react组件
 r-show只支持html标签，还不支持react组件，即不支持const B = () => return <div>B</div>. 
 const A = () => { return <B r-show={b}/>}
+关于组件的r-show问题，目前看来实现还比较复杂，相对简单的一种做法，如果是组件上的r-show，可以走r-if那套逻辑
 
 demo目录用于测试的。其中index.js包含插件源码。source.jsx包含测试用的源代码。result.jsx输出转换后的代码。ast.json是
 源代码转换后的代码。
