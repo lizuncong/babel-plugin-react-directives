@@ -1,7 +1,6 @@
 module.exports = (types) => (path, state) => {
   const { node: jsxNode } = path
   const jsxAttributes = jsxNode.openingElement.attributes
-  console.log('标签名称。。。。', jsxNode.openingElement.name.name, path.container)
   // 如果没有attributes属性或者attributes长度为0，则不进行转换
   if(!jsxAttributes || !jsxAttributes.length) return
   const index = jsxAttributes.findIndex(item => ['r-if', 'r-show'].indexOf(item.name.name) > -1 )
