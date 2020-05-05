@@ -12,7 +12,7 @@ const B = () => {
 const A = () => {
   return (
       <div r-show={b}>
-        <B r-show={b} />
+        <B r-if={b} />
       </div>
   )
 }

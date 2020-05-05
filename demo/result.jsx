@@ -15,10 +15,13 @@ const B = () => {
 const A = () => {
   return (
       <div r-show={b}>
-        <B r-show={b} />
+        <B r-if={b} />
       </div>
   )
 }
+
+
+
 
 
 //转换后：
@@ -34,8 +37,6 @@ const A = () => {
   return <div style={{
     display: b ? "" : "none"
   }}>
-        <B style={{
-      display: b ? "" : "none"
-    }} />
+        {b ? <B /> : null}
       </div>;
 };
