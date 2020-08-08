@@ -11,10 +11,13 @@ const B = () => {
 
 const A = () => {
   return (
-      <div r-show={b}>
+      <div r-if={b}>
         <B r-show={b} />
       </div>
   )
 }
 
 
+const F = () => {
+  console.log('this...', this.A)
+}

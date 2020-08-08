@@ -14,13 +14,16 @@ const B = () => {
 
 const A = () => {
   return (
-      <div r-show={b}>
+      <div r-if={b}>
         <B r-show={b} />
       </div>
   )
 }
 
 
+const F = () => {
+  console.log('this...', this.A)
+}
 
 
 
@@ -34,11 +37,13 @@ const B = () => {
 };
 
 const A = () => {
-  return <div style={{
-    display: b ? "" : "none"
-  }}>
+  return b ? <div>
         <B style={{
       display: b ? "" : "none"
     }} />
-      </div>;
+      </div> : null;
+};
+
+const F = () => {
+  console.log('this...', this.A);
 };
