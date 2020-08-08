@@ -15,7 +15,7 @@ const B = () => {
 const A = () => {
   return (
       <div r-if={b}>
-        <B r-show={b} />
+        <B r-if={b} />
       </div>
   )
 }
@@ -38,9 +38,7 @@ const B = () => {
 
 const A = () => {
   return b ? <div>
-        <B style={{
-      display: b ? "" : "none"
-    }} />
+        {b ? <B /> : null}
       </div> : null;
 };
 
