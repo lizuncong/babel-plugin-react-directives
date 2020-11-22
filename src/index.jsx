@@ -17,12 +17,3 @@ const A = () => {
   )
 }
 
-
-
-const F = function(){
-  console.log('this...Outer..', this);
-  const f = ( ) => {
-    console.log('this...inner..', this);
-  }
-  return f;
-}

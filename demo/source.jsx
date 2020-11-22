@@ -17,12 +17,3 @@ const A = () => {
   )
 }
 
-
-const F = () => {
-  console.log('this...', this.A)
-}
-
-
-const p = new Promise(resolve => {resolve(1)})
-
-p.then(res => console.log(res))
