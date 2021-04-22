@@ -17,3 +17,7 @@ const A = () => {
   )
 }
 
+const show = async () => {
+  const result = await new Promise(resolve => resolve(1))
+  console.log(result)
+}
