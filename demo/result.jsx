@@ -2,42 +2,29 @@ import React from "react"
 
 //转换前：
 
-const b = 'c'
-
-const B = (args) => {
-  return (
-    <span>
-      I am Big B
-    </span>
-  )
-}
-
+const showA = true;
+const showB = false;
 const A = () => {
   return (
-      <div style={{ display: 'inlne-block' }} r-show={b}>
-        <B r-show={b} />
+      <div>
+        Babel React Plugin
+        <div r-if={showA}>show: A</div> 
+        <div r-show={showB}>show: B</div>
       </div>
   )
 }
 
 
-
-
 //转换后：
-const b = 'c';
-
-const B = args => {
-  return <span>
-      I am Big B
-    </span>;
-};
+const showA = true;
+const showB = false;
 
 const A = () => {
-  return <div style={{
-    display: b ? 'inlne-block' : "none"
-  }}>
-        <B style={{
-      display: b ? "" : "none"
-    }} />
+  return <div>
+        Babel React Plugin
+        {showA ? <div>show: A</div> : null} 
+        <div style={{
+      display: showB ? "" : "none"
+    }}>show: B</div>
       </div>;
 };
