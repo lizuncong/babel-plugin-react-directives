@@ -1,4 +1,3 @@
-[完整demo](https://github.com/lizuncong/babel-plugin-react-directives)
 ### 目录介绍
 - demo目录用于学习 babel 编译过程的。在终端运行 node demo/index.js即可看到编译后的效果
   + index.js主要用于学习 `babel` 编译的整体流程，读取 source.jsx 的源码并编译
