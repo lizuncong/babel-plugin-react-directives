@@ -4,7 +4,9 @@ const traverse = require('@babel/traverse')
 const types = require('@babel/types')
 const fs = require('fs')
 const p = require('path')
-function compile(code) {
+
+module.exports = function getRemoteModulePathMap(remoteFilePath) {
+    const code = fs.readFileSync(p.join(__dirname, './remote.js'), 'utf-8')
     const remoteModulePathMap = {}
     const ast = parser.parse(code, {
         sourceType: "module",
@@ -13,8 +15,6 @@ function compile(code) {
             'typescript'
         ]
     })
-    fs.writeFileSync(p.join(__dirname, './ast.json'), JSON.stringify(ast))
-
     const visitor = {
         ExportNamedDeclaration: (path, state) => {
             const { node: { source, specifiers } } = path
@@ -30,9 +30,5 @@ function compile(code) {
     }
 
     traverse.default(ast, visitor)
-    debugger
     return remoteModulePathMap
 }
-
-const code = fs.readFileSync(p.join(__dirname, './remote.js'), 'utf-8')
-compile(code)
