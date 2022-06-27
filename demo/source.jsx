@@ -17,15 +17,14 @@
 //   )
 // }
 
-
 const showA = true;
 const showB = false;
 const A = () => {
   return (
-      <div>
-        Babel React Plugin
-        <div r-if={showA}>show: A</div> 
-        <div r-show={showB}>show: B</div>
-      </div>
-  )
-}
+    <div>
+      Babel React Plugin
+      <div r-if={showA}>show: A</div>
+      <div r-show={showB}>show: B</div>
+    </div>
+  );
+};

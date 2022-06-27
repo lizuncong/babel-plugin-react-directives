@@ -9,7 +9,5 @@
     ],
     "@babel/preset-react"
   ],
-  "plugins": [
-    "./react-directives-plugin.js"
-  ]
+  "plugins": ["./react-directives-plugin.js"]
 }

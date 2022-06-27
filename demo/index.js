@@ -4,13 +4,16 @@ const traverse = require('@babel/traverse')
 const types = require('@babel/types')
 const fs = require('fs')
 const p = require('path')
-const jsxElementVisitor = require('../visitor')
-
+// const jsxElementVisitor = require('../visitor')
+const importVisitor = require('./import-visitor')
 function compile(code) {
   // 1.读取源代码并转换为抽象语法树
   const ast = parser.parse(code, {
+    sourceType: "module",
+    allowImportExportEverywhere: true,
     plugins: [
-      'jsx'
+      'typescript'
+      // 'jsx'
     ]
   })
   // 输出转换前的抽象语法树到ast.json
@@ -18,7 +21,8 @@ function compile(code) {
 
   // 2.traverse
   const visitor = {
-    JSXElement: jsxElementVisitor(types)
+    // JSXElement: jsxElementVisitor(types),
+    ImportDeclaration: importVisitor
   }
 
   // traverse转换代码
@@ -31,8 +35,9 @@ function compile(code) {
 }
 
 
-const code = fs.readFileSync(p.join(__dirname, './source.jsx'), 'utf-8')
-
+// const code = fs.readFileSync(p.join(__dirname, './source.jsx'), 'utf-8')
+const code = fs.readFileSync(p.join(__dirname, './test.js'), 'utf-8')
+debugger
 const resultObj = compile(code)
 
 const output = 'import React from "react"\n\n' + '//转换前：\n' + code + '\n\n\n' + '//转换后：\n' + resultObj.code
