@@ -53,7 +53,8 @@ module.exports = function getRemoteModulePathMap(code) {
                 remoteModulePathMap[exported.name] = {
                     name: exported.name, // 导出的模块名称
                     exportKind, // 值：type或者value。正常的模块是value。typescript的类型声明是type
-                    modulePath // 模块路径
+                    modulePath, // 模块路径
+                    specify
                 }
             })
         }

@@ -57,10 +57,28 @@ module.exports = function ({ types, ...rest }) {
     debugger;
     if (value !== opts.match) return;
     console.log("ImportDeclarationVisitor....");
+// export { default as LZC } from 'appShell/lzc';
+// export { dynamic } from 'appShell/dynamic';
+// export { default as SLPageLoad, type TS_TYPE } from 'appShell/SLPageLoad';
+// export { useModel, history as My_History } from 'appShell/core';
+// 使用的地方：
+// import home from  './index.jsx'
+
+// import { dynamic as MyDynamic, LZC, useModel, My_History, SLPageLoad, type TS_TYPE } from '@/remote';
+// import { LZC as NN_LZC } from '@/remote';
+
     specifiers.forEach((specify) => {
       const importedName = specify.imported.name;
       const realModulePath = remoteModulePathMap[importedName];
       if (!realModulePath) return;
+      const realModuleSpecify = realModulePath.specify;
+      if(realModuleSpecify.local){
+        if(realModuleSpecify.local.name === 'default'){
+          specify = types.importDefaultSpecifier(specify.local);
+        } else {
+          specify.imported = realModuleSpecify.local
+        }
+      } 
       path.insertBefore(
         types.importDeclaration(
           [specify],
