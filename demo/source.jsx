@@ -1,30 +1,27 @@
-//
-// const b = 'c'
-//
-// const B = (args) => {
-//   return (
-//     <span>
-//       I am Big B
-//     </span>
-//   )
-// }
-//
-// const A = () => {
-//   return (
-//       <div style={{ display: 'inlne-block' }} r-show={b}>
-//         <B r-show={b} />
-//       </div>
-//   )
-// }
+import classnames from 'classnames';
 
-const showA = true;
-const showB = false;
-const A = () => {
+import './SwiperCard.less';
+
+
+export default function SwiperItemCard() {
+  const cls = classnames(['btn', 'btn_sml'])
   return (
-    <div>
-      Babel React Plugin
-      <div r-if={showA}>show: A</div>
-      <div r-show={showB}>show: B</div>
-    </div>
+    <Card
+      classNames={[prefixCls, getPrefixCls('swiper-card')].concat(classNames || [])}
+    >
+      <span className={cls}></span>
+      <button
+        className={classnames(['btn', 'btn__pre'])}
+        id='testbtn'
+      />
+      <button
+        className={classnames(['btn', 'btn__pre'])}
+        id='testbtn'
+      />
+      <span className='btn'></span>
+      <span className='btn btn_primary'></span>
+      <span classNames="btn_middle"></span>
+      <div className={classnames('btn', 'btn_primary')}></div>
+    </Card>
   );
-};
+}

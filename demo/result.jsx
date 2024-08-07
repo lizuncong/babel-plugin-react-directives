@@ -1,30 +1,14 @@
-import React from "react"
-
-//转换前：
-
-const showA = true;
-const showB = false;
-const A = () => {
-  return (
-      <div>
-        Babel React Plugin
-        <div r-if={showA}>show: A</div> 
-        <div r-show={showB}>show: B</div>
-      </div>
-  )
+import classnames from 'classnames';
+import SwiperCard from './SwiperCard.less';
+export default function SwiperItemCard() {
+  const cls = classnames([SwiperCard.btn, SwiperCard.btn_sml]);
+  return <Card>
+      <span className={cls}></span>
+      <button className={classnames([SwiperCard.btn, SwiperCard.btn__pre])} id='testbtn' />
+      <button className={classnames([SwiperCard.btn, SwiperCard.btn__pre])} id='testbtn' />
+      <span className={SwiperCard.btn}></span>
+      <span className={classnames(SwiperCard.btn, SwiperCard.btn_primary)}></span>
+      <span classNames={SwiperCard.btn_middle}></span>
+      <div className={classnames(SwiperCard.btn, SwiperCard.btn_primary)}></div>
+    </Card>;
 }
-
-
-//转换后：
-const showA = true;
-const showB = false;
-
-const A = () => {
-  return <div>
-        Babel React Plugin
-        {showA ? <div>show: A</div> : null} 
-        <div style={{
-      display: showB ? "" : "none"
-    }}>show: B</div>
-      </div>;
-};

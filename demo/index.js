@@ -5,15 +5,18 @@ const types = require('@babel/types')
 const fs = require('fs')
 const p = require('path')
 // const jsxElementVisitor = require('../visitor')
-const importVisitor = require('./import-visitor')
+const importVisitor = require('./importVisitor')
+const JSXAttributeVisitor = require('./JSXAttributeVisitor')
+const callExpressionVisitor = require('./CallExpressionVisitor')
+const arrayExpressionVisitor = require('./arrayExpressionVisitor')
 function compile(code) {
   // 1.读取源代码并转换为抽象语法树
   const ast = parser.parse(code, {
     sourceType: "module",
     allowImportExportEverywhere: true,
     plugins: [
-      'typescript'
-      // 'jsx'
+      'typescript',
+      'jsx'
     ]
   })
   // 输出转换前的抽象语法树到ast.json
@@ -21,8 +24,10 @@ function compile(code) {
 
   // 2.traverse
   const visitor = {
-    // JSXElement: jsxElementVisitor(types),
-    ImportDeclaration: importVisitor
+    JSXAttribute: JSXAttributeVisitor,
+    ImportDeclaration: importVisitor,
+    CallExpression: callExpressionVisitor,
+    ArrayExpression: arrayExpressionVisitor
   }
 
   // traverse转换代码
@@ -35,11 +40,10 @@ function compile(code) {
 }
 
 
-// const code = fs.readFileSync(p.join(__dirname, './source.jsx'), 'utf-8')
-const code = fs.readFileSync(p.join(__dirname, './test.js'), 'utf-8')
-debugger
+const code = fs.readFileSync(p.join(__dirname, './source.jsx'), 'utf-8')
+// const code = fs.readFileSync(p.join(__dirname, './test.js'), 'utf-8')
 const resultObj = compile(code)
 
-const output = 'import React from "react"\n\n' + '//转换前：\n' + code + '\n\n\n' + '//转换后：\n' + resultObj.code
+const output =  resultObj.code
 
 fs.writeFileSync(p.join(__dirname, './result.jsx'), output)

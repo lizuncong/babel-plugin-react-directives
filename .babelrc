@@ -4,6 +4,6 @@
   ],
   // "sourceType": "module",
   "plugins": [
-    ["./import-path-replace", { "match": "@/remote", "remoteFile": "./src/remote.ts" }]
+    // ["./import-path-replace", { "match": "@/remote", "remoteFile": "./src/remote.ts" }]
   ]
 }
