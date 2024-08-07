@@ -10,13 +10,12 @@
 - .babelrc 是 babel 配置文件
 
 ### Global Css转换Module Css
-如果只需要转换global css，只关注globalCssToModuleCss这个目录即可
+
 
 - npm install 安装依赖
-- 进入globalCssToModuleCss目录，执行node index.js
-- source.jsx即是源文件内容
-- result.jsx即是转换后的源码
-- ast.json是源文件的ast
+- 将需要转换的源码复制到src下
+- 执行npm run build，转换后的源码在lib目录下
+
 
 
 ### 运行
