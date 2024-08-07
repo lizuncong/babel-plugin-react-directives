@@ -16,8 +16,9 @@ module.exports = (path, state) => {
             // elements.push(el)
         } if (el.type === 'StringLiteral') {
             const object = types.identifier(path.opts.__lessModuleName)
-            const property = types.identifier(el.value)
-            const memberExpression = types.memberExpression(object, property);
+            const isComputed = el.value.includes('-')
+            const property = isComputed ? types.stringLiteral(el.value) : types.identifier(el.value)
+            const memberExpression = types.memberExpression(object, property, isComputed);
             node.elements[idx] = memberExpression;
         } else {
             // elements.push(el)

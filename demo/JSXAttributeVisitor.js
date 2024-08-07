@@ -36,8 +36,11 @@ const processClassName = (path, state) => {
       const args = [];
       values.forEach(v => {
         const object = types.identifier(path.opts.__lessModuleName)
-        const property = types.identifier(v)
-        const memberExpression = types.memberExpression(object, property);
+        const isComputed = v.includes('-')
+        const property = isComputed ? types.stringLiteral(v) : types.identifier(v)
+
+        const memberExpression = types.memberExpression(object, property, isComputed);
+        
         args.push(memberExpression)
       })
       const callee = types.identifier(path.opts.__classnamesStr)
@@ -48,8 +51,9 @@ const processClassName = (path, state) => {
 
     } else {
       const object = types.identifier(path.opts.__lessModuleName)
-      const property = types.identifier(node.value.value)
-      const memberExpression = types.memberExpression(object, property);
+      const isComputed = node.value.value.includes('-')
+      const property = isComputed ? types.stringLiteral(node.value.value) : types.identifier(node.value.value)
+      const memberExpression = types.memberExpression(object, property, isComputed);
       node.value = types.jsxExpressionContainer(memberExpression);
     }
 

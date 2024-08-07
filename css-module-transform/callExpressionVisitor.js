@@ -5,16 +5,17 @@ module.exports = (path, state) => {
         node
     } = path;
     const calleeName = node.callee?.name;
-    if(calleeName !== path.opts.__classnamesStr) return;
+    if (calleeName !== path.opts.__classnamesStr) return;
     const args = [];
     node.arguments.forEach(arg => {
-        if(arg.type === 'ArrayExpression' && arg.elements){
+        if (arg.type === 'ArrayExpression' && arg.elements) {
             const elements = [];
             arg.elements.forEach(el => {
-                if(el.type === 'StringLiteral'){
+                if (el.type === 'StringLiteral') {
                     const object = types.identifier(path.opts.__lessModuleName)
-                    const property = types.identifier(el.value)
-                    const memberExpression = types.memberExpression(object, property);
+                    const isComputed = el.value.includes('-')
+                    const property = isComputed ? types.stringLiteral(el.value) : types.identifier(el.value)
+                    const memberExpression = types.memberExpression(object, property, isComputed);
                     elements.push(memberExpression)
                 } else {
                     elements.push(arg)
@@ -22,10 +23,11 @@ module.exports = (path, state) => {
             })
 
             args.push(types.arrayExpression(elements))
-        } else if (arg.type === 'StringLiteral'){
+        } else if (arg.type === 'StringLiteral') {
             const object = types.identifier(path.opts.__lessModuleName)
             const property = types.identifier(arg.value)
-            const memberExpression = types.memberExpression(object, property);  
+            const isComputed = arg.value.includes('-')
+            const memberExpression = types.memberExpression(object, property, isComputed);
             args.push(memberExpression)
         } else {
             args.push(arg)

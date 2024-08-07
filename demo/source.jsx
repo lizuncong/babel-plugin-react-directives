@@ -11,15 +11,15 @@ export default function SwiperItemCard() {
       className={cls}
        ></span>
       <button
-        className={clsname(['btn', 'btn__pre'])}
+        className={clsname(['btn', 'btn-large', 'btn__pre'])}
         id='testbtn'
       />
       <button
-        className={["listRule1", "listRule2", cls].join(" ")}
+        className={["listRule1", 'btn-sm', "listRule2", cls].join(" ")}
         id='okbtn'
       />
       <span className='btn'></span>
-      <span className='btn btn_primary'></span>
+      <span className='btn btn_primary btn-middel'></span>
       <span classNames="btn_middle"></span>
       <div className={clsname('btn', 'btn_primary')}></div>
     </Card>
