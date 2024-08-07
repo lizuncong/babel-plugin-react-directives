@@ -5,7 +5,7 @@ module.exports = (path, state) => {
         node
     } = path;
     const calleeName = node.callee?.name;
-    if(calleeName !== 'classnames') return;
+    if(calleeName !== path.opts.__classnamesStr) return;
     const args = [];
     node.arguments.forEach(arg => {
         if(arg.type === 'ArrayExpression' && arg.elements){

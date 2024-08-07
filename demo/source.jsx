@@ -1,27 +1,27 @@
-import classnames from 'classnames';
+import clsname from 'classnames';
 
 import './SwiperCard.less';
 
 
 export default function SwiperItemCard() {
-  const cls = classnames(['btn', 'btn_sml'])
+  const cls = clsname(['btn', 'btn_sml'])
   return (
     <Card
       classNames={[prefixCls, getPrefixCls('swiper-card')].concat(classNames || [])}
     >
       <span className={cls}></span>
       <button
-        className={classnames(['btn', 'btn__pre'])}
+        className={clsname(['btn', 'btn__pre'])}
         id='testbtn'
       />
       <button
-        className={classnames(['btn', 'btn__pre'])}
-        id='testbtn'
+        className={["listRule1", "listRule2", cls].join(" ")}
+        id='okbtn'
       />
       <span className='btn'></span>
       <span className='btn btn_primary'></span>
       <span classNames="btn_middle"></span>
-      <div className={classnames('btn', 'btn_primary')}></div>
+      <div className={clsname('btn', 'btn_primary')}></div>
     </Card>
   );
 }

@@ -4,32 +4,25 @@ module.exports = (path, state) => {
     const {
         node
     } = path;
-    const calleeName = node.callee?.name;
-    if (calleeName !== 'classnames') return;
-    const args = [];
-    node.arguments.forEach(arg => {
-        if (arg.type === 'ArrayExpression' && arg.elements) {
-            const elements = [];
-            arg.elements.forEach(el => {
-                if (el.type === 'StringLiteral') {
-                    const object = types.identifier(path.opts.__lessModuleName)
-                    const property = types.identifier(el.value)
-                    const memberExpression = types.memberExpression(object, property);
-                    elements.push(memberExpression)
-                } else {
-                    elements.push(arg)
-                }
-            })
-
-            args.push(types.arrayExpression(elements))
-        } else if (arg.type === 'StringLiteral') {
+    const attributeNode = path.findParent((path) => path.isJSXAttribute())?.node;
+    if (!attributeNode) return;
+    const isClassNames = ['className', 'classNames'].includes(attributeNode.name.name)
+    if (!isClassNames) { return }
+    node.elements.forEach((el, idx) => {
+        if (el.type === 'Identifier') {
+            // const object = types.identifier(path.opts.__lessModuleName)
+            // const property = types.identifier(el.name)
+            // const memberExpression = types.memberExpression(object, property);
+            // elements.push(el)
+        } if (el.type === 'StringLiteral') {
             const object = types.identifier(path.opts.__lessModuleName)
-            const property = types.identifier(arg.value)
+            const property = types.identifier(el.value)
             const memberExpression = types.memberExpression(object, property);
-            args.push(memberExpression)
+            node.elements[idx] = memberExpression;
         } else {
-            args.push(arg)
+            // elements.push(el)
         }
     })
-    node.arguments = args;
+
+
 }

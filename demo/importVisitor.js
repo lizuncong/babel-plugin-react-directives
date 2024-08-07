@@ -7,6 +7,9 @@ module.exports = (path, state) => {
       specifiers,
     },
   } = path;
+  if(value === 'classnames'){
+    path.opts.__classnamesStr = path.node.specifiers[0].local.name;
+  }
   const parts = value.split('.');
   const ext = parts[parts.length - 1]
   if (ext === 'less') {
