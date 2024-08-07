@@ -1,0 +1,49 @@
+const generator = require('@babel/generator')
+const parser = require('@babel/parser')
+const traverse = require('@babel/traverse')
+const types = require('@babel/types')
+const fs = require('fs')
+const p = require('path')
+// const jsxElementVisitor = require('../visitor')
+const importVisitor = require('./importVisitor')
+const JSXAttributeVisitor = require('./JSXAttributeVisitor')
+const callExpressionVisitor = require('./CallExpressionVisitor')
+const arrayExpressionVisitor = require('./arrayExpressionVisitor')
+function compile(code) {
+  // 1.读取源代码并转换为抽象语法树
+  const ast = parser.parse(code, {
+    sourceType: "module",
+    allowImportExportEverywhere: true,
+    plugins: [
+      'typescript',
+      'jsx'
+    ]
+  })
+  // 输出转换前的抽象语法树到ast.json
+  fs.writeFileSync(p.join(__dirname, './ast.json'), JSON.stringify(ast))
+
+  // 2.traverse
+  const visitor = {
+    JSXAttribute: JSXAttributeVisitor,
+    ImportDeclaration: importVisitor,
+    CallExpression: callExpressionVisitor,
+    ArrayExpression: arrayExpressionVisitor
+  }
+
+  // traverse转换代码
+  traverse.default(ast, visitor)
+  // fs.writeFileSync('template-literal-ast.json', JSON.stringify(ast))
+
+  // 3.generator将AST转回成代码
+  return generator.default(ast, {}, code)
+
+}
+
+
+const code = fs.readFileSync(p.join(__dirname, './source.jsx'), 'utf-8')
+// const code = fs.readFileSync(p.join(__dirname, './test.js'), 'utf-8')
+const resultObj = compile(code)
+
+const output =  resultObj.code
+
+fs.writeFileSync(p.join(__dirname, './result.jsx'), output)

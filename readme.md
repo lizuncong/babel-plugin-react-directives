@@ -9,6 +9,16 @@
 - visitor.js。这里是在编译阶段转换 react 中 r-if，r-show 属性
 - .babelrc 是 babel 配置文件
 
+### Global Css转换Module Css
+如果只需要转换global css，只关注globalCssToModuleCss这个目录即可
+
+- npm install 安装依赖
+- 进入globalCssToModuleCss目录，执行node index.js
+- source.jsx即是源文件内容
+- result.jsx即是转换后的源码
+- ast.json是源文件的ast
+
+
 ### 运行
 - 直接运行 `npm run build` 即可。
 
