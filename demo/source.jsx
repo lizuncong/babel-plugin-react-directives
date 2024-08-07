@@ -1,8 +1,5 @@
 import clsname from 'classnames';
-
 import './SwiperCard.less';
-
-
 export default function SwiperItemCard() {
   const cls = clsname(['btn', 'btn_sml'])
   return (

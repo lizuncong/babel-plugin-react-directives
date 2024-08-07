@@ -27,7 +27,7 @@ const processClassName = (path, state) => {
         const memberExpression = types.memberExpression(object, property);
         args.push(memberExpression)
       })
-      const callee = types.identifier('classnames')
+      const callee = types.identifier(path.opts.__classnamesStr)
       const callExpression = types.callExpression(callee, args);
 
       node.value = types.jsxExpressionContainer(callExpression);
