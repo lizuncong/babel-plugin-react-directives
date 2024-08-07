@@ -4,14 +4,27 @@ module.exports = (path, state) => {
   const {
     node
   } = path;
-  // 只处理className或者classNames属性
-  if (!['className', 'classNames'].includes(node.name.name)) return;
+  // 处理className或者classNames属性
+  if (['className', 'classNames'].includes(node.name.name)) {
+    processClassName(path, state);
+    return;
+  }
 
-  processClassName(path, state);
+  // 注释掉data-属性
+  if (node.name.name.startsWith('data-')) {
+    commentOutDataAttribute(path, state)
+  }
 
 
 }
-
+const commentOutDataAttribute = (path, state) => {
+  const { node } = path;
+  path.addComment('leading', `${node.name.name}=${node.value.value}`, true);
+  // path.replaceWith(
+  //   types.CommentLine('fdafdsafd')
+  // );
+  path.remove();
+}
 const processClassName = (path, state) => {
   const {
     node
@@ -19,7 +32,7 @@ const processClassName = (path, state) => {
   // 先处理这种情况：<span className='btn btn_primary'></span>
   if (node.value.type === 'StringLiteral') {
     const values = node.value.value.split(' ').filter(i => i);
-    if(values.length > 1){
+    if (values.length > 1) {
       const args = [];
       values.forEach(v => {
         const object = types.identifier(path.opts.__lessModuleName)
@@ -39,7 +52,7 @@ const processClassName = (path, state) => {
       const memberExpression = types.memberExpression(object, property);
       node.value = types.jsxExpressionContainer(memberExpression);
     }
-   
+
 
   }
 
