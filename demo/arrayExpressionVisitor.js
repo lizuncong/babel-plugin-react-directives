@@ -8,6 +8,7 @@ module.exports = (path, state) => {
     if (!attributeNode) return;
     const isClassNames = ['className', 'classNames'].includes(attributeNode.name.name)
     if (!isClassNames) { return }
+    if(!path.opts.__lessModuleName)return;
     node.elements.forEach((el, idx) => {
         if (el.type === 'Identifier') {
             // const object = types.identifier(path.opts.__lessModuleName)

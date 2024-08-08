@@ -1,4 +1,5 @@
 const types = require('@babel/types')
+const generator = require('@babel/generator')
 
 module.exports = (path, state) => {
   const {
@@ -19,16 +20,21 @@ module.exports = (path, state) => {
 }
 const commentOutDataAttribute = (path, state) => {
   const { node } = path;
-  path.addComment('leading', `${node.name.name}=${node.value.value}`, true);
   // path.replaceWith(
   //   types.CommentLine('fdafdsafd')
   // );
+  path.node.trailingComments = [];
+  const { code: generatedCode } = generator.default(path.node);
+  path.addComment('leading', generatedCode, true);
+
   path.remove();
 }
 const processClassName = (path, state) => {
   const {
     node
   } = path;
+  if(!path.opts.__lessModuleName)return;
+
   // 先处理这种情况：<span className='btn btn_primary'></span>
   if (node.value.type === 'StringLiteral') {
     const values = node.value.value.split(' ').filter(i => i);

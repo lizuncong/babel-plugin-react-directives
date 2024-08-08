@@ -6,6 +6,7 @@ module.exports = (path, state) => {
     } = path;
     const calleeName = node.callee?.name;
     if (calleeName !== path.opts.__classnamesStr) return;
+    if(!path.opts.__lessModuleName)return;
     const args = [];
     node.arguments.forEach(arg => {
         if (arg.type === 'ArrayExpression' && arg.elements) {
