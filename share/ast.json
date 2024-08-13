@@ -1,1 +1,122 @@
-{"type":"File","start":0,"end":156,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":11,"column":2,"index":156}},"errors":[],"program":{"type":"Program","start":0,"end":156,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":11,"column":2,"index":156}},"sourceType":"module","interpreter":null,"body":[{"type":"ImportDeclaration","start":5,"end":38,"loc":{"start":{"line":2,"column":4,"index":5},"end":{"line":2,"column":37,"index":38}},"importKind":"value","specifiers":[],"source":{"type":"StringLiteral","start":12,"end":37,"loc":{"start":{"line":2,"column":11,"index":12},"end":{"line":2,"column":36,"index":37}},"extra":{"rawValue":"./GameRankListCard.less","raw":"'./GameRankListCard.less'"},"value":"./GameRankListCard.less"}},{"type":"ExportNamedDeclaration","start":44,"end":153,"loc":{"start":{"line":4,"column":4,"index":44},"end":{"line":10,"column":5,"index":153}},"exportKind":"value","specifiers":[],"source":null,"declaration":{"type":"FunctionDeclaration","start":51,"end":153,"loc":{"start":{"line":4,"column":11,"index":51},"end":{"line":10,"column":5,"index":153}},"id":{"type":"Identifier","start":60,"end":76,"loc":{"start":{"line":4,"column":20,"index":60},"end":{"line":4,"column":36,"index":76},"identifierName":"GameRankListItem"},"name":"GameRankListItem"},"generator":false,"async":false,"params":[],"body":{"type":"BlockStatement","start":79,"end":153,"loc":{"start":{"line":4,"column":39,"index":79},"end":{"line":10,"column":5,"index":153}},"body":[{"type":"ReturnStatement","start":87,"end":147,"loc":{"start":{"line":5,"column":6,"index":87},"end":{"line":9,"column":8,"index":147}},"argument":{"type":"JSXElement","start":104,"end":138,"loc":{"start":{"line":6,"column":8,"index":104},"end":{"line":8,"column":14,"index":138}},"openingElement":{"type":"JSXOpeningElement","start":104,"end":109,"loc":{"start":{"line":6,"column":8,"index":104},"end":{"line":6,"column":13,"index":109}},"name":{"type":"JSXIdentifier","start":105,"end":108,"loc":{"start":{"line":6,"column":9,"index":105},"end":{"line":6,"column":12,"index":108}},"name":"div"},"attributes":[],"selfClosing":false},"closingElement":{"type":"JSXClosingElement","start":132,"end":138,"loc":{"start":{"line":8,"column":8,"index":132},"end":{"line":8,"column":14,"index":138}},"name":{"type":"JSXIdentifier","start":134,"end":137,"loc":{"start":{"line":8,"column":10,"index":134},"end":{"line":8,"column":13,"index":137}},"name":"div"}},"children":[{"type":"JSXText","start":109,"end":132,"loc":{"start":{"line":6,"column":13,"index":109},"end":{"line":8,"column":8,"index":132}},"extra":{"rawValue":"\n          123\n        ","raw":"\n          123\n        "},"value":"\n          123\n        "}],"extra":{"parenthesized":true,"parenStart":94}}}],"directives":[]}}}],"directives":[],"extra":{"topLevelAwait":false}},"comments":[]}
+{
+    "type": "File",
+    "start": 0,
+    "end": 18,
+    "loc": {
+        "start": {
+            "line": 1,
+            "column": 0,
+            "index": 0
+        },
+        "end": {
+            "line": 3,
+            "column": 2,
+            "index": 18
+        }
+    },
+    "errors": [],
+    "program": {
+        "type": "Program",
+        "start": 0,
+        "end": 18,
+        "loc": {
+            "start": {
+                "line": 1,
+                "column": 0,
+                "index": 0
+            },
+            "end": {
+                "line": 3,
+                "column": 2,
+                "index": 18
+            }
+        },
+        "sourceType": "module",
+        "interpreter": null,
+        "body": [
+            {
+                "type": "VariableDeclaration",
+                "start": 5,
+                "end": 15,
+                "loc": {
+                    "start": {
+                        "line": 2,
+                        "column": 4,
+                        "index": 5
+                    },
+                    "end": {
+                        "line": 2,
+                        "column": 14,
+                        "index": 15
+                    }
+                },
+                "declarations": [
+                    {
+                        "type": "VariableDeclarator",
+                        "start": 9,
+                        "end": 14,
+                        "loc": {
+                            "start": {
+                                "line": 2,
+                                "column": 8,
+                                "index": 9
+                            },
+                            "end": {
+                                "line": 2,
+                                "column": 13,
+                                "index": 14
+                            }
+                        },
+                        "id": {
+                            "type": "Identifier",
+                            "start": 9,
+                            "end": 10,
+                            "loc": {
+                                "start": {
+                                    "line": 2,
+                                    "column": 8,
+                                    "index": 9
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "column": 9,
+                                    "index": 10
+                                },
+                                "identifierName": "a"
+                            },
+                            "name": "a"
+                        },
+                        "init": {
+                            "type": "NumericLiteral",
+                            "start": 13,
+                            "end": 14,
+                            "loc": {
+                                "start": {
+                                    "line": 2,
+                                    "column": 12,
+                                    "index": 13
+                                },
+                                "end": {
+                                    "line": 2,
+                                    "column": 13,
+                                    "index": 14
+                                }
+                            },
+                            "extra": {
+                                "rawValue": 1,
+                                "raw": "1"
+                            },
+                            "value": 1
+                        }
+                    }
+                ],
+                "kind": "let"
+            }
+        ],
+        "directives": [],
+        "extra": {
+            "topLevelAwait": false
+        }
+    },
+    "comments": []
+}
