@@ -1,4 +1,5 @@
 const generator = require('@babel/generator')
+const types = require('@babel/types')
 
 function compile() {
     const ast = {
@@ -24,7 +25,7 @@ function compile() {
                         },
                     ],
                     "kind": "const"
-                }
+                },
             ],
         },
     }
@@ -33,6 +34,28 @@ function compile() {
 }
 
 
-const resultObj = compile()
+// const resultObj = compile()
 
-console.log('根据ast生成的源码：\n', resultObj.code)
+// console.log('根据ast生成的源码：\n', resultObj.code)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const i = types.identifier('b')
+const n = types.numericLiteral(3);
+const v = types.variableDeclarator(i, n);
+
+
+console.log('i...', i)
+console.log('n...', n)
+console.log('v...', v)

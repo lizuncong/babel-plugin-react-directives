@@ -1,7 +1,7 @@
 {
     "type": "File",
     "start": 0,
-    "end": 18,
+    "end": 155,
     "loc": {
         "start": {
             "line": 1,
@@ -9,16 +9,16 @@
             "index": 0
         },
         "end": {
-            "line": 3,
+            "line": 10,
             "column": 2,
-            "index": 18
+            "index": 155
         }
     },
     "errors": [],
     "program": {
         "type": "Program",
         "start": 0,
-        "end": 18,
+        "end": 155,
         "loc": {
             "start": {
                 "line": 1,
@@ -26,18 +26,18 @@
                 "index": 0
             },
             "end": {
-                "line": 3,
+                "line": 10,
                 "column": 2,
-                "index": 18
+                "index": 155
             }
         },
         "sourceType": "module",
         "interpreter": null,
         "body": [
             {
-                "type": "VariableDeclaration",
+                "type": "ImportDeclaration",
                 "start": 5,
-                "end": 15,
+                "end": 38,
                 "loc": {
                     "start": {
                         "line": 2,
@@ -46,71 +46,247 @@
                     },
                     "end": {
                         "line": 2,
-                        "column": 14,
-                        "index": 15
+                        "column": 37,
+                        "index": 38
                     }
                 },
-                "declarations": [
-                    {
-                        "type": "VariableDeclarator",
-                        "start": 9,
-                        "end": 14,
+                "importKind": "value",
+                "specifiers": [],
+                "source": {
+                    "type": "StringLiteral",
+                    "start": 12,
+                    "end": 37,
+                    "loc": {
+                        "start": {
+                            "line": 2,
+                            "column": 11,
+                            "index": 12
+                        },
+                        "end": {
+                            "line": 2,
+                            "column": 36,
+                            "index": 37
+                        }
+                    },
+                    "extra": {
+                        "rawValue": "./GameRankListCard.less",
+                        "raw": "'./GameRankListCard.less'"
+                    },
+                    "value": "./GameRankListCard.less"
+                }
+            },
+            {
+                "type": "ExportNamedDeclaration",
+                "start": 43,
+                "end": 152,
+                "loc": {
+                    "start": {
+                        "line": 3,
+                        "column": 4,
+                        "index": 43
+                    },
+                    "end": {
+                        "line": 9,
+                        "column": 5,
+                        "index": 152
+                    }
+                },
+                "exportKind": "value",
+                "specifiers": [],
+                "source": null,
+                "declaration": {
+                    "type": "FunctionDeclaration",
+                    "start": 50,
+                    "end": 152,
+                    "loc": {
+                        "start": {
+                            "line": 3,
+                            "column": 11,
+                            "index": 50
+                        },
+                        "end": {
+                            "line": 9,
+                            "column": 5,
+                            "index": 152
+                        }
+                    },
+                    "id": {
+                        "type": "Identifier",
+                        "start": 59,
+                        "end": 75,
                         "loc": {
                             "start": {
-                                "line": 2,
-                                "column": 8,
-                                "index": 9
+                                "line": 3,
+                                "column": 20,
+                                "index": 59
                             },
                             "end": {
-                                "line": 2,
-                                "column": 13,
-                                "index": 14
+                                "line": 3,
+                                "column": 36,
+                                "index": 75
+                            },
+                            "identifierName": "GameRankListItem"
+                        },
+                        "name": "GameRankListItem"
+                    },
+                    "generator": false,
+                    "async": false,
+                    "params": [],
+                    "body": {
+                        "type": "BlockStatement",
+                        "start": 78,
+                        "end": 152,
+                        "loc": {
+                            "start": {
+                                "line": 3,
+                                "column": 39,
+                                "index": 78
+                            },
+                            "end": {
+                                "line": 9,
+                                "column": 5,
+                                "index": 152
                             }
                         },
-                        "id": {
-                            "type": "Identifier",
-                            "start": 9,
-                            "end": 10,
-                            "loc": {
-                                "start": {
-                                    "line": 2,
-                                    "column": 8,
-                                    "index": 9
+                        "body": [
+                            {
+                                "type": "ReturnStatement",
+                                "start": 86,
+                                "end": 146,
+                                "loc": {
+                                    "start": {
+                                        "line": 4,
+                                        "column": 6,
+                                        "index": 86
+                                    },
+                                    "end": {
+                                        "line": 8,
+                                        "column": 8,
+                                        "index": 146
+                                    }
                                 },
-                                "end": {
-                                    "line": 2,
-                                    "column": 9,
-                                    "index": 10
-                                },
-                                "identifierName": "a"
-                            },
-                            "name": "a"
-                        },
-                        "init": {
-                            "type": "NumericLiteral",
-                            "start": 13,
-                            "end": 14,
-                            "loc": {
-                                "start": {
-                                    "line": 2,
-                                    "column": 12,
-                                    "index": 13
-                                },
-                                "end": {
-                                    "line": 2,
-                                    "column": 13,
-                                    "index": 14
+                                "argument": {
+                                    "type": "JSXElement",
+                                    "start": 103,
+                                    "end": 137,
+                                    "loc": {
+                                        "start": {
+                                            "line": 5,
+                                            "column": 8,
+                                            "index": 103
+                                        },
+                                        "end": {
+                                            "line": 7,
+                                            "column": 14,
+                                            "index": 137
+                                        }
+                                    },
+                                    "openingElement": {
+                                        "type": "JSXOpeningElement",
+                                        "start": 103,
+                                        "end": 108,
+                                        "loc": {
+                                            "start": {
+                                                "line": 5,
+                                                "column": 8,
+                                                "index": 103
+                                            },
+                                            "end": {
+                                                "line": 5,
+                                                "column": 13,
+                                                "index": 108
+                                            }
+                                        },
+                                        "name": {
+                                            "type": "JSXIdentifier",
+                                            "start": 104,
+                                            "end": 107,
+                                            "loc": {
+                                                "start": {
+                                                    "line": 5,
+                                                    "column": 9,
+                                                    "index": 104
+                                                },
+                                                "end": {
+                                                    "line": 5,
+                                                    "column": 12,
+                                                    "index": 107
+                                                }
+                                            },
+                                            "name": "div"
+                                        },
+                                        "attributes": [],
+                                        "selfClosing": false
+                                    },
+                                    "closingElement": {
+                                        "type": "JSXClosingElement",
+                                        "start": 131,
+                                        "end": 137,
+                                        "loc": {
+                                            "start": {
+                                                "line": 7,
+                                                "column": 8,
+                                                "index": 131
+                                            },
+                                            "end": {
+                                                "line": 7,
+                                                "column": 14,
+                                                "index": 137
+                                            }
+                                        },
+                                        "name": {
+                                            "type": "JSXIdentifier",
+                                            "start": 133,
+                                            "end": 136,
+                                            "loc": {
+                                                "start": {
+                                                    "line": 7,
+                                                    "column": 10,
+                                                    "index": 133
+                                                },
+                                                "end": {
+                                                    "line": 7,
+                                                    "column": 13,
+                                                    "index": 136
+                                                }
+                                            },
+                                            "name": "div"
+                                        }
+                                    },
+                                    "children": [
+                                        {
+                                            "type": "JSXText",
+                                            "start": 108,
+                                            "end": 131,
+                                            "loc": {
+                                                "start": {
+                                                    "line": 5,
+                                                    "column": 13,
+                                                    "index": 108
+                                                },
+                                                "end": {
+                                                    "line": 7,
+                                                    "column": 8,
+                                                    "index": 131
+                                                }
+                                            },
+                                            "extra": {
+                                                "rawValue": "\n          123\n        ",
+                                                "raw": "\n          123\n        "
+                                            },
+                                            "value": "\n          123\n        "
+                                        }
+                                    ],
+                                    "extra": {
+                                        "parenthesized": true,
+                                        "parenStart": 93
+                                    }
                                 }
-                            },
-                            "extra": {
-                                "rawValue": 1,
-                                "raw": "1"
-                            },
-                            "value": 1
-                        }
+                            }
+                        ],
+                        "directives": []
                     }
-                ],
-                "kind": "let"
+                }
             }
         ],
         "directives": [],

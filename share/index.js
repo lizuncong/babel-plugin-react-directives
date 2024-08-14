@@ -8,7 +8,6 @@ const p = require('path')
 function compile() {
   const code = `
     import './GameRankListCard.less';
-
     export function GameRankListItem() {
       return (
         <div>
@@ -35,11 +34,11 @@ function compile() {
       const {
         node
       } = path;
-      const moduleName = 'classnames'
+      const moduleName = 'cls'
       const local = types.identifier(moduleName)
       const specify = types.importDefaultSpecifier(local);
-
-      node.body = [types.importDeclaration([specify], types.stringLiteral('classnames')), ...node.body]
+      const clsImport = types.importDeclaration([specify], types.stringLiteral('../../a.js'));
+      node.body = [clsImport, ...node.body]
     }
   }
 
